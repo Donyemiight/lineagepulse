@@ -93,7 +93,7 @@ Three cooperating sub-agents orchestrated with **LangGraph**:
 ## Quickstart
 
 ```bash
-git clone https://github.com/ademidun/lineagepulse.git
+git clone https://github.com/Donyemiight/lineagepulse.git
 cd lineagepulse
 pip install -r requirements.txt
 
