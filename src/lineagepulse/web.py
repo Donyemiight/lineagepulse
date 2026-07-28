@@ -17,17 +17,14 @@ when env vars are set.
 
 from __future__ import annotations
 
-import json
 import os
-from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import HTMLResponse, JSONResponse, PlainTextResponse
-from pydantic import BaseModel
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse, JSONResponse
 
-from lineagepulse.config import Settings
 from lineagepulse.cli import _synthesize_blast_radius, _synthesize_demo_incident
+from lineagepulse.config import Settings
 from lineagepulse.datahub_client import DataHubClient, _incident_to_document_body
 from lineagepulse.llm import investigate
 from lineagepulse.models import Incident, IncidentSeverity
