@@ -473,7 +473,7 @@ def _incident_to_document_body(incident: Incident) -> str:
     lines.append("")
     lines.append("---")
     lines.append(
-        "*Generated automatically by [LineagePulse](https://github.com/ademidun/lineagepulse) — "
+        "*Generated automatically by [LineagePulse](https://github.com/Donyemiight/lineagepulse) — "
         "DataHub Agent Hackathon submission.*"
     )
     return "\n".join(lines)

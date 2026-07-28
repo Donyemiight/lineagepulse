@@ -1,5 +1,7 @@
 # LineagePulse
 
+![LineagePulse thumbnail](docs/thumbnail.png)
+
 > **The first responder your data graph actually wakes up to.**
 
 When a dataset breaks, a quality check fails, or a column silently changes,
@@ -67,6 +69,15 @@ Three cooperating sub-agents orchestrated with **LangGraph**:
    dashboards/models, and writes a structured incident document back to
    DataHub using `save_document()` so the graph is enriched for the next
    agent.
+
+---
+
+## Demo video
+
+A 93-second walkthrough of the full pipeline — incident, lineage, severity
+bump, Slack message, DataHub document — is included at
+[`docs/lineagepulse-demo.mp4`](docs/lineagepulse-demo.mp4). The YouTube
+mirror is linked from the Devpost submission.
 
 ---
 
