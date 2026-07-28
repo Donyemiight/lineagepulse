@@ -158,5 +158,5 @@ Apache 2.0 — see [LICENSE](./LICENSE).
 
 ## Hackathon notes
 
-- The CI workflow in `.github/workflows/ci.yml` requires a Personal Access Token with the `workflow` scope to push. The submission repo was created with a `repo`-only PAT, so the workflow is committed locally and will appear in the public repo once the maintainer pushes it. The CI definition is otherwise complete and will run lint + the smoke test on every PR.
+- The CI workflow in `.github/workflows/ci.yml` requires a Personal Access Token with the `workflow` scope to push. The submission repo was created with a `repo`-only PAT, so the workflow is committed on the `ci-workflow` branch and the maintainer can merge it after re-creating a `workflow`-scoped PAT. The CI definition is otherwise complete and will run lint + the smoke test on every PR.
 - The submission targets the **Agents That Do Real Work** sub-challenge, with a strong ML lineage hook that also qualifies it for the **Production ML Agents** sub-challenge.
