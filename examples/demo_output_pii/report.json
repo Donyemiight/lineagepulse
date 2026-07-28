@@ -1,0 +1,13 @@
+{
+  "title": "PII tag missing on patients.email column",
+  "executive_summary": "The `email` column on `patients` does not have the `PII` glossary term applied. This is a compliance gap \u2014 three downstream reports inherit the column without masking.",
+  "root_cause_hypothesis": "The configured LLM is not available, so a heuristic root cause is reported. Inspect the raw signal: {'missing_tag': 'PII', 'column': 'email', 'expected_owners': ['compliance@acme.io']}",
+  "suggested_fix": "Re-run the upstream pipeline, then re-validate the assertion. If it persists, check the most recent schema change on the upstream dataset.",
+  "blast_radius_summary": "2 downstream consumer(s)",
+  "severity_rationale": "Severity is set to high based on the signal type.",
+  "recommended_actions": [
+    "Re-run the upstream pipeline producing this asset.",
+    "Verify the assertion definition still matches the current schema.",
+    "Notify the listed owners if the issue persists after re-run."
+  ]
+}

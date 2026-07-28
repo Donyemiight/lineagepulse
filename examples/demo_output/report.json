@@ -1,0 +1,13 @@
+{
+  "title": "Freshness violation on taxi_trips (3h 12m stale)",
+  "executive_summary": "taxi_trips has not received new rows in 3h 12m. The freshness assertion expects rows at most 1h apart. Downstream ML model demand_forecaster is now training on stale data.",
+  "root_cause_hypothesis": "The configured LLM is not available, so a heuristic root cause is reported. Inspect the raw signal: {'assertion_urn': 'urn:li:assertion:taxi-freshness', 'expected_max_age_minutes': 60, 'observed_age_minutes': 192}",
+  "suggested_fix": "Re-run the upstream pipeline, then re-validate the assertion. If it persists, check the most recent schema change on the upstream dataset.",
+  "blast_radius_summary": "1 downstream consumer(s), 1 ML model(s), 1 dashboard(s)",
+  "severity_rationale": "Severity is set to high based on the signal type.",
+  "recommended_actions": [
+    "Re-run the upstream pipeline producing this asset.",
+    "Verify the assertion definition still matches the current schema.",
+    "Notify the listed owners if the issue persists after re-run."
+  ]
+}

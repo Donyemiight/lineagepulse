@@ -1,0 +1,30 @@
+# LineagePulse — DataHub Agent Hackathon
+# Tested on Python 3.10+
+
+# --- DataHub ---
+acryl-datahub>=1.0.0
+datahub-agent-context>=1.0.0
+
+# --- Agent orchestration ---
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-anthropic>=0.2.0
+langchain-openai>=0.2.0
+
+# --- HTTP / Slack ---
+requests>=2.31.0
+slack-sdk>=3.27.0
+
+# --- Config / utils ---
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+rich>=13.7.0
+tenacity>=8.2.0
+
+# --- Dev / test ---
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+black>=24.0.0
+ruff>=0.4.0

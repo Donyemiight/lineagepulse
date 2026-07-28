@@ -1,0 +1,78 @@
+{
+  "id": "9ce96bdd-0009-4030-b8aa-2e0a879ae78c",
+  "kind": "glossary_gap",
+  "severity": "high",
+  "status": "detected",
+  "title": "PII tag missing on patients.email column",
+  "summary": "The `email` column on `patients` does not have the `PII` glossary term applied. This is a compliance gap \u2014 three downstream reports inherit the column without masking.",
+  "asset": {
+    "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,healthcare.patients,PROD)",
+    "type": "dataset",
+    "platform": "postgres",
+    "name": "patients",
+    "owners": [
+      "compliance@acme.io",
+      "data-platform@acme.io"
+    ],
+    "domain": "Healthcare"
+  },
+  "detected_at": "2026-07-28T20:09:37.559974Z",
+  "source": "datahub",
+  "source_id": null,
+  "raw_signal": {
+    "missing_tag": "PII",
+    "column": "email",
+    "expected_owners": [
+      "compliance@acme.io"
+    ]
+  },
+  "blast_radius": {
+    "root": {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:postgres,healthcare.patients,PROD)",
+      "type": "dataset",
+      "platform": "postgres",
+      "name": "patients",
+      "owners": [
+        "compliance@acme.io",
+        "data-platform@acme.io"
+      ],
+      "domain": "Healthcare"
+    },
+    "upstream": [
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,ehr_raw.intake,PROD)",
+        "type": "dataset",
+        "platform": "s3",
+        "name": "ehr_raw_intake",
+        "owners": [],
+        "domain": null
+      }
+    ],
+    "downstream": [
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,reporting.weekly_outreach,PROD)",
+        "type": "dataset",
+        "platform": "snowflake",
+        "name": "weekly_outreach",
+        "owners": [],
+        "domain": null
+      },
+      {
+        "urn": "urn:li:dashboard:(urn:li:dataPlatform:tableau,marketing.engagement,PROD)",
+        "type": "dataset",
+        "platform": "tableau",
+        "name": "Marketing Engagement",
+        "owners": [],
+        "domain": null
+      }
+    ],
+    "affected_ml_models": [],
+    "affected_dashboards": [],
+    "affected_pipelines": []
+  },
+  "root_cause": "The configured LLM is not available, so a heuristic root cause is reported. Inspect the raw signal: {'missing_tag': 'PII', 'column': 'email', 'expected_owners': ['compliance@acme.io']}",
+  "suggested_fix": "Re-run the upstream pipeline, then re-validate the assertion. If it persists, check the most recent schema change on the upstream dataset.",
+  "notified_owners": [],
+  "slack_message_ts": null,
+  "datahub_document_urn": "urn:li:document:incident-9ce96bdd-0009-4030-b8aa-2e0a879ae78c"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "ce0651f3-0d77-447a-a9d4-65dc46bd2c74",
+  "kind": "freshness_violation",
+  "severity": "critical",
+  "status": "detected",
+  "title": "Freshness violation on taxi_trips (3h 12m stale)",
+  "summary": "taxi_trips has not received new rows in 3h 12m. The freshness assertion expects rows at most 1h apart. Downstream ML model demand_forecaster is now training on stale data.",
+  "asset": {
+    "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,demo.warehouse.taxi_trips,PROD)",
+    "type": "dataset",
+    "platform": "snowflake",
+    "name": "taxi_trips",
+    "owners": [
+      "ademidun@acme.io",
+      "data-platform@acme.io"
+    ],
+    "domain": "Mobility"
+  },
+  "detected_at": "2026-07-28T20:09:33.613325Z",
+  "source": "datahub",
+  "source_id": null,
+  "raw_signal": {
+    "assertion_urn": "urn:li:assertion:taxi-freshness",
+    "expected_max_age_minutes": 60,
+    "observed_age_minutes": 192
+  },
+  "blast_radius": {
+    "root": {
+      "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,demo.warehouse.taxi_trips,PROD)",
+      "type": "dataset",
+      "platform": "snowflake",
+      "name": "taxi_trips",
+      "owners": [
+        "ademidun@acme.io",
+        "data-platform@acme.io"
+      ],
+      "domain": "Mobility"
+    },
+    "upstream": [
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:s3,raw.taxi.zones,PROD)",
+        "type": "dataset",
+        "platform": "s3",
+        "name": "raw_taxi_zones",
+        "owners": [],
+        "domain": null
+      }
+    ],
+    "downstream": [
+      {
+        "urn": "urn:li:dataset:(urn:li:dataPlatform:snowflake,demo.warehouse.daily_revenue,PROD)",
+        "type": "dataset",
+        "platform": "snowflake",
+        "name": "daily_revenue",
+        "owners": [],
+        "domain": null
+      }
+    ],
+    "affected_ml_models": [
+      {
+        "urn": "urn:li:mlModel:(urn:li:dataPlatform:mlflow,demand_forecaster,PROD)",
+        "type": "mlModel",
+        "platform": "mlflow",
+        "name": "demand_forecaster",
+        "owners": [
+          "ml-team@acme.io"
+        ],
+        "domain": null
+      }
+    ],
+    "affected_dashboards": [
+      {
+        "urn": "urn:li:dashboard:(urn:li:dataPlatform:looker,daily_ops,PROD)",
+        "type": "dashboard",
+        "platform": "looker",
+        "name": "Daily Ops",
+        "owners": [
+          "ops@acme.io"
+        ],
+        "domain": null
+      }
+    ],
+    "affected_pipelines": [
+      {
+        "urn": "urn:li:dataJob:(urn:li:dataPlatform:airflow,taxi_ingest,taxi_load)",
+        "type": "dataJob",
+        "platform": "airflow",
+        "name": "taxi_load",
+        "owners": [],
+        "domain": null
+      }
+    ]
+  },
+  "root_cause": "The configured LLM is not available, so a heuristic root cause is reported. Inspect the raw signal: {'assertion_urn': 'urn:li:assertion:taxi-freshness', 'expected_max_age_minutes': 60, 'observed_age_minutes': 192}",
+  "suggested_fix": "Re-run the upstream pipeline, then re-validate the assertion. If it persists, check the most recent schema change on the upstream dataset.",
+  "notified_owners": [],
+  "slack_message_ts": null,
+  "datahub_document_urn": "urn:li:document:incident-ce0651f3-0d77-447a-a9d4-65dc46bd2c74"
+}
