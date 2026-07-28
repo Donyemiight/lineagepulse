@@ -325,7 +325,7 @@ def main() -> int:
         str(out_mp4),
     ]
     print("→ running ffmpeg…")
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    r = subprocess.run(cmd, capture_output=True, text=True, check=False)
     if r.returncode != 0:
         print("FFMPEG STDERR:")
         print(r.stderr[-2000:])
@@ -336,6 +336,7 @@ def main() -> int:
     probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", str(out_mp4)],
         capture_output=True, text=True,
+        check=False,
     )
     print(f"  duration: {probe.stdout.strip()}s")
     return 0
