@@ -3,16 +3,16 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Install build deps first for better layer caching
-COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip wheel setuptools \
+COPY requirements.txt ./
+RUN pip install --no-cache-dir --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
 
 # Copy source
 COPY src/ ./src/
-COPY scripts/ ./scripts/
 
-# Install the package
-RUN pip install --no-cache-dir -e .
+# Make the package importable
+ENV PYTHONPATH=/app/src
+ENV PYTHONUNBUFFERED=1
 
 # Run as non-root
 RUN useradd -m -u 1000 app && chown -R app:app /app
