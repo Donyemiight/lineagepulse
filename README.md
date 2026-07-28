@@ -5,7 +5,7 @@
 > **The first responder your data graph actually wakes up to.**
 
 🌐 **Live demo:** **[https://lineagepulse.onrender.com](https://lineagepulse.onrender.com)**
-&nbsp;·&nbsp; 🎬 **Video:** [`docs/lineagepulse-demo.mp4`](docs/lineagepulse-demo.mp4)
+&nbsp;·&nbsp; 🎬 **Screencast video (49s):** [`docs/lineagepulse-screencast.mp4`](docs/lineagepulse-screencast.mp4)
 &nbsp;·&nbsp; 📂 **Repo:** [github.com/Donyemiight/lineagepulse](https://github.com/Donyemiight/lineagepulse)
 
 When a dataset breaks, a quality check fails, or a column silently changes,
