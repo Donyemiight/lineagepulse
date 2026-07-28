@@ -1,0 +1,20 @@
+services:
+  - type: web_service
+    name: lineagepulse
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: DRY_RUN
+        value: "true"
+      - key: DATAHUB_GMS_URL
+        value: http://localhost:8080
+      - key: LOG_LEVEL
+        value: INFO
+      - key: PYTHONUNBUFFERED
+        value: "1"
