@@ -3,8 +3,9 @@
 **Sub-challenge:** Agents That Do Real Work *(also touches Production ML Agents)*
 
 **Repository:** https://github.com/Donyemiight/lineagepulse
+**Live demo URL:** https://lineagepulse.onrender.com *(judges can click this — no install needed)*
 **Demo video:** https://github.com/Donyemiight/lineagepulse/blob/main/docs/lineagepulse-demo.mp4 *(to be uploaded to YouTube by the maintainer)*
-**Live test entry point:** `python -m lineagepulse demo`
+**Local test entry point:** `python -m lineagepulse demo`
 
 ---
 
